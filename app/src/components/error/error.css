@@ -1,0 +1,23 @@
+.error {
+  color: #888;
+  font-family: sans-serif;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  margin: 2em auto; 
+  position: absolute; 
+  left: 0; 
+  right: 0;
+  top: 30%; 
+}
+
+.error h2 {
+  color: #555;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.error p {
+  margin: 0 auto;
+  width: 300px;
+}
