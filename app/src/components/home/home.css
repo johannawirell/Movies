@@ -8,4 +8,19 @@
   height: 100vh;
   background-color: black;
   color: white;
+  display: grid;
+  grid-template-columns: 30% 70%;
+
 }
+
+.side {
+  background-color: aquamarine;
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.list-movies {
+  background-color: blueviolet;
+  grid-column-start: 2;
+  grid-column-end: 2;
+} 
