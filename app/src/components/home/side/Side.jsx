@@ -13,7 +13,7 @@
 export default function Side () {
   return (
     <div className="side">
-    <h1 className="title">Movies</h1>
+    <h1 className="nav_title">Movies</h1>
 
       <div className="nav">
         <a href="/" className="nav_element">

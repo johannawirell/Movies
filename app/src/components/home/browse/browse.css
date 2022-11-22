@@ -1,0 +1,35 @@
+.list-movies {
+  margin: 10px;
+}
+
+.title {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.trending, .top_rated {
+  display: flex;
+  gap: 10px;
+}
+
+.trending {
+  height: 450px;
+}
+
+.trending_item {
+  height: 400px;
+  width: 50%;
+  background-color: aqua;
+  border-radius: 20px;
+}
+
+.top_rated {
+  height: 300px;
+}
+
+.top_rated_item {
+  height: 250px;
+  width: 180px;
+  background-color: aqua;
+  flex-shrink: 0;
+}

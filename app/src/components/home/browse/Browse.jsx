@@ -12,7 +12,25 @@
  */
 export default function Browse () {
   return (
-  <div className="list-movies"></div>
+    <div className="list-movies">
+      <h1 className="title">Trending</h1>
+      <div className="trending">
+        <div className="trending_item"></div>
+        <div className="trending_item"></div>
+      </div>
+      <h1 className="title">Top rated</h1>
+      <div className="top_rated">
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+        <div className="top_rated_item"></div>
+      </div>
+
+    </div>
   )
 }
   
