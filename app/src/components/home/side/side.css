@@ -1,0 +1,32 @@
+.side {
+  margin: 10px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 80vh;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 150;
+  text-align: center;
+}
+
+.nav_element {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  margin: 20px;
+  padding: 10px;
+}
+
+.fa {
+  margin: 0 10px 10px 5px;
+  font-size: 25px;
+}
+

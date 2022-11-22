@@ -1,3 +1,4 @@
+@import './side/side.css';
 * {
   margin: 0;
   padding: 0;
@@ -6,21 +7,20 @@
 .home-container {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(16, 16, 16);
   color: white;
   display: grid;
-  grid-template-columns: 30% 70%;
-
+  grid-template-columns: 20% 80%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .side {
-  background-color: aquamarine;
+  border-right: solid 1px rgb(104, 102, 102);
   grid-column-start: 1;
   grid-column-end: 1;
 }
 
 .list-movies {
-  background-color: blueviolet;
   grid-column-start: 2;
   grid-column-end: 2;
 } 

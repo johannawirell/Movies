@@ -2,7 +2,7 @@
  * Side bar.
  *
  * @author Johanna Wirell <wirelljohanna@gmail.com>
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -12,7 +12,21 @@
  */
 export default function Side () {
   return (
-  <div className="side"></div>
+    <div className="side">
+    <h1 className="title">Movies</h1>
+
+      <div className="nav">
+        <a href="/" className="nav_element">
+          <i className="fa fa-home"></i>
+          <span className="nav_name">Home</span> 
+        </a>
+        <a href="/" className="nav_element">
+          <i className="fa fa-compass"></i>
+          <span className="nav_name">Discover</span> 
+        </a>
+      </div>
+    </div>
+
   )
 }
   
