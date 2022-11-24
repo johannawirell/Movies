@@ -12,15 +12,28 @@ const API_KEY = process.env.REACT_APP_API_KEY
 // const LOGO_URL = process.env.REACT_APP_LOGO_URL
 
 export async function getPopularMovies() {
-  return await axios.get(API_URL + '/movie/popular', {
-    params: {
-      'language': 'en-US',
-      'page': 1
-    },
-    headers: {
-      'Authorization': `Bearer ${API_KEY}`
-    }
-  }).then(res => res)
-    .catch(err => err)
+  // return await axios.get(API_URL + '/movie/popular', {
+  //   params: {
+  //     'language': 'en-US',
+  //     'page': 1
+  //   },
+  //   headers: {
+  //     'Authorization': `Bearer ${API_KEY}`
+  //   }
+  // }).then(res => res)
+  //   .catch(err => err)
+}
+
+export async function getTopRatedMovies() {
+  // return await axios.get(API_URL + '/movie/top_rated', {
+  //   params: {
+  //     'language': 'en-US',
+  //     'page': 1
+  //   },
+  //   headers: {
+  //     'Authorization': `Bearer ${API_KEY}`
+  //   }
+  // }).then(res => res)
+  //   .catch(err => err)
 }
 

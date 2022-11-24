@@ -2,34 +2,25 @@
  * Component that shows the movies.
  *
  * @author Johanna Wirell <wirelljohanna@gmail.com>
- * @version 1.0.0
+ * @version 1.0.1
  */
+import React, { lazy } from 'react'
+
+const Popular = lazy(() => import('./popular/Popular'))
+const TopRated = lazy(() => import('./top_rated/TopRated'))
 
 /**
  * Browse component of application.
  * 
  * @return {HTML} - Render start page with public recipes.
  */
-export default function Browse () {
+export default function Browse ({setReady}) {
+  setReady()
+
   return (
     <div className="list-movies">
-      <h1 className="title">Trending</h1>
-      <div className="trending">
-        <div className="trending_item"></div>
-        <div className="trending_item"></div>
-      </div>
-      <h1 className="title">Top rated</h1>
-      <div className="top_rated">
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-        <div className="top_rated_item"></div>
-      </div>
-
+      <Popular/>
+      <TopRated/>
     </div>
   )
 }
