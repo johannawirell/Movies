@@ -2,10 +2,11 @@
  * Home page of the application.
  *
  * @author Johanna Wirell <wirelljohanna@gmail.com>
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 import React, { lazy, useState, useEffect } from 'react'
+import ClipLoader from "react-spinners/ClipLoader";
 
 import { getPopularMovies } from '../../lib/CommunicationAPI'
 const Side = lazy(() => import('./side/Side'))
@@ -47,8 +48,10 @@ export default function Home () {
       return <Error500 />
     }
     return (
-      <div className="loading">
-        <p>Loading...</p>
+      <div className="home-container">
+        <div className="loading">
+          <ClipLoader color="red" size={80}/>
+        </div>
       </div>
     )
   }
