@@ -29,7 +29,7 @@ export default function Home () {
       const response = await getPopularMovies()
       if (mounted) {
         if (response.status === 200) {
-          setMovies(response.data)
+          setMovies(response.data.results)
         } else {
           setServerError(true)
         }
