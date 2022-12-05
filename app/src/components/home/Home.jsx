@@ -45,7 +45,7 @@ export default function Home () {
     }
   }, [])
 
-  // // Loading icon if data is not fetched 
+  // Loading icon if data is not fetched 
   if (!popularMovies || !topRatedMovies) {
     // If server error render error compoent 500.
     if (serverError) {
@@ -63,7 +63,7 @@ export default function Home () {
   return (
     <div className="home-container">
       <Side/>
-      <Browse/>
+      <Browse top={topRatedMovies} popular={popularMovies}/>
     </div>
   )
 }

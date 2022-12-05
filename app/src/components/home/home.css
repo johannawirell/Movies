@@ -7,8 +7,6 @@
 }
 
 .home-container {
-  width: 100vw;
-  height: 100vh;
   background-color: rgb(16, 16, 16);
   color: white;
   display: grid;

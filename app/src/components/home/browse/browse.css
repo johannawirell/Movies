@@ -1,3 +1,7 @@
+@import './movie/movie.css';
+@import './popular/popular.css';
+@import './top_rated/top.css';
+
 .list-movies {
   margin: 10px;
 }
@@ -12,24 +16,3 @@
   gap: 10px;
 }
 
-.trending {
-  height: 450px;
-}
-
-.trending_item {
-  height: 400px;
-  width: 50%;
-  background-color: aqua;
-  border-radius: 20px;
-}
-
-.top_rated {
-  height: 300px;
-}
-
-.top_rated_item {
-  height: 250px;
-  width: 180px;
-  background-color: aqua;
-  flex-shrink: 0;
-}
