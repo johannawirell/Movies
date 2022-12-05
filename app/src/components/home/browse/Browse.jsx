@@ -14,9 +14,7 @@ const TopRated = lazy(() => import('./top_rated/TopRated'))
  * 
  * @return {HTML} - Render start page with public recipes.
  */
-export default function Browse ({setReady}) {
-  setReady()
-
+export default function Browse () {
   return (
     <div className="list-movies">
       <Popular/>

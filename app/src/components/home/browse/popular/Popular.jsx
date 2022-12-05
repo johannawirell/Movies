@@ -10,8 +10,7 @@
  * 
  * @return {HTML} - Render start page with public recipes.
  */
- export default function Popular () {
-  // Fetch popular
+export default function Popular () {
   return (
     <>
       <h1 className="title">Trending</h1>
