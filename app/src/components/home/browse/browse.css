@@ -17,3 +17,20 @@
   gap: 10px;
 }
 
+.scroll-container {
+  display: flex;
+  align-items: center;
+}
+
+.scroll {
+  overflow: hidden;
+  scroll-behavior: smooth; 
+}
+
+.arrow {
+  width: 60px;
+  height: 100px;
+  cursor: pointer;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
