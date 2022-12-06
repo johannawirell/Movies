@@ -17,20 +17,20 @@ const Movie = lazy(() => import('../movie/Movie'))
   if (props.movies) {
 
     return (
-      <>
+      <div className="top-rated-container">
       <h1 className="title">Top rated</h1>
-        <div className="top_rated">
+        <div className="top-rated">
           {props.movies.map(movie => (
             <Movie 
               title={movie.original_title} 
               posterPath={movie.poster_path} 
               id={movie.id} 
-              className='top_rated_item'
+              className='top-rated-item'
               key={movie.id}
               />
           ))}
         </div>
-      </>
+      </div>
     )
   }
 }

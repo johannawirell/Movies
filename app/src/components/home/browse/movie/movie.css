@@ -1,4 +1,10 @@
 .movie {
   background-color: rgb(54, 51, 51);
   background-repeat: no-repeat;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.movie:hover {
+  transform: scale(1.05);
 }

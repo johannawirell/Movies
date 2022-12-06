@@ -15,7 +15,7 @@ const Movie = lazy(() => import('../movie/Movie'))
 export default function Popular (props) {
   if (props.movies) {
     return (
-      <>
+      <div className="trending-container">
         <h1 className="title">Trending</h1>
         <div className="trending">
           {props.movies.map(movie => (
@@ -23,12 +23,12 @@ export default function Popular (props) {
               title={movie.original_title} 
               posterPath={movie.poster_path} 
               id={movie.id} 
-              className='trending_item'
+              className='trending-item'
               key={movie.id}
               />
           ))}
         </div>
-      </>
+      </div>
     )
   }
 }

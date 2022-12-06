@@ -1,8 +1,8 @@
-.top_rated {
+.top-rated {
   height: 300px;
 }
 
-.top_rated_item {
+.top-rated-item {
   height: 300px;
   width: 200px;
   flex-shrink: 0;
