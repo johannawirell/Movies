@@ -4,6 +4,7 @@
 
 .list-movies {
   margin: 10px;
+  overflow: hidden;
 }
 
 .title {

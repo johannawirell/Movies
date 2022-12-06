@@ -1,10 +1,10 @@
 .trending_item {
-  min-height: 400px;
+  min-height: 600px;
   min-width: 400px;
   border-radius: 20px;
   background-size: 400px;
 }
 
 .trending {
-  height: 450px;
+  height: 600px;
 }
