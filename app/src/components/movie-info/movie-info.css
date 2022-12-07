@@ -1,0 +1,14 @@
+@import './trailer/trailer.css';
+
+.movie-info-container {
+  border: rgb(0, 106, 255) solid;
+  margin: 10px;
+  height: 100vh;
+  text-align: center;
+}
+
+.labels {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
