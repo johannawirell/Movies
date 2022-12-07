@@ -36,6 +36,7 @@ export default function Home () {
         } else {
           setPopularMovies(response.popularMovies.results)
           setTopRatedMovies(response.topMovies.results)
+          _saveInCache(response)
         }
       }
     }
@@ -68,3 +69,7 @@ export default function Home () {
   )
 }
  
+function _saveInCache(data) {
+  window.localStorage.setItem('popularMovies', JSON.stringify(data.popularMovies.results))
+  window.localStorage.setItem('topMovies', JSON.stringify(data.topMovies.results))
+}
