@@ -36,7 +36,7 @@ export default function Popular (props) {
             {props.movies.map(movie => (
               <Movie 
                 title={movie.original_title} 
-                posterPath={movie.poster_path} 
+                posterPath={movie.poster_path}
                 id={movie.id} 
                 className='trending-item'
                 key={movie.id}
