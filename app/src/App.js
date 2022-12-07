@@ -10,14 +10,18 @@ import React, { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 const Home = lazy(() => import('./components/home/Home'))
-const Movie = lazy(() => import('./components/movie/Movie'))
+const MovieInfo = lazy(() => import('./components/movie-info/MovieInfo'))
+const Error404 = lazy(() => import('./components/error/Error404'))
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/movie" element={<Movie />} />
-    </Routes>
+    <div className="app-container">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieInfo />} />
+        <Route path="*" element = {<Error404 />}/>
+      </Routes>
+    </div>
   )
 }
  

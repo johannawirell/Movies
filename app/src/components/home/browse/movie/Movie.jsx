@@ -4,7 +4,6 @@
  * @author Johanna Wirell <wirelljohanna@gmail.com>
  * @version 1.0.0
  */
-
 const API_LOGO_URL = process.env.REACT_APP_LOGO_URL
 
 /**
@@ -26,10 +25,12 @@ const API_LOGO_URL = process.env.REACT_APP_LOGO_URL
   setTimeout(() => {
     setImage()
   }, )
-  
-  
 
-  return (
-    <div className={classes} id={props.id}></div>
+ return (
+    <a href={`./movie/${props.id}`}>
+      <div className={classes} id={props.id}></div>
+    </a>
   )
+  
+ 
 }
