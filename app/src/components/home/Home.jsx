@@ -6,7 +6,7 @@
  */
 
 import React, { lazy, useState, useEffect } from 'react'
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from "react-spinners/ClipLoader"
 
 import { getMovies } from '../../lib/CommunicationAPI'
 const Side = lazy(() => import('./side/Side'))

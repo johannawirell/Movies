@@ -10,6 +10,18 @@ import axios from 'axios'
 const API_URL = process.env.REACT_APP_API_URL
 const API_KEY = process.env.REACT_APP_API_KEY
 
+export async function getMovieInfo(movieId) {
+  return await axios.get(API_URL + `/movie/${movieId}`, {
+    params: {
+      'language': 'en-US',
+    },
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`
+    }
+  }).then(res => res)
+    .catch(err => err)
+}
+
 export async function getMovies() {
   const popular = await getPopularMovies()
   const top = await getTopRatedMovies()
@@ -34,7 +46,6 @@ export async function getMovies() {
 
     return response
   }
-
 }
 
 async function getPopularMovies() {
