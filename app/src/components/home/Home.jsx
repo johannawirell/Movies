@@ -11,12 +11,13 @@ import { getMovies } from '../../lib/CommunicationAPI'
 const Loading = lazy(() => import('../loading/Loading'))
 const Side = lazy(() => import('./side/Side'))
 const Browse = lazy(() => import('./browse/Browse'))
+const Search = lazy(() => import('./search/Search'))
 const Error500 = lazy(() => import('../error/Error500'))
 
 /**
 * Home component of application.
 * 
-* @return {HTML} - Render start page with public recipes.
+* @return {HTML} - Render the start page.
 */
 export default function Home () {
   const [loading, setLoading] = useState(true)
@@ -56,6 +57,7 @@ export default function Home () {
 
   return (
     <div className="home-container">
+      <Search/>
       <Side/>
       <Browse top={topRatedMovies} popular={popularMovies}/>
     </div>

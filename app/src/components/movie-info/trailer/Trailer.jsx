@@ -13,7 +13,6 @@
   export default function Trailer (props) {
     return (
      <div className="trailer-container">
-      trailer
      </div>
    )
   }
