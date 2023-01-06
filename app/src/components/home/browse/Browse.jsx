@@ -23,8 +23,7 @@ export default function Browse (props) {
       return (
         <div className="list-movies">
           <Popular movies={popularMovies}/>
-          {/* <Popular movies={popularMovies}/>
-          <TopRated movies={topMovies}/> */}
+          <TopRated movies={topMovies}/>
        </div>
       )
     }

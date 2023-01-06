@@ -12,7 +12,6 @@ const Error500 = lazy(() => import('../error/Error500'))
 const Side = lazy(() => import('../home/side/Side'))
 const Trailer = lazy(() => import('./trailer/Trailer'))
 
-
 /**
  * Movie info component of application.
  * 
@@ -72,7 +71,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
    return (
     <div className="home-container">
       <Side/>
-      <div className="movie-info-container">
+      <div className="movie-info-container" background="blue">
         <Trailer/>
         <h1>{data.title}</h1>
         <div className="labels">
