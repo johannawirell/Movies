@@ -1,13 +1,19 @@
 .error {
   position: fixed;
   top: 0;
-  bottom: 0;
   width: 100vw;
   height: 100vh;
-  padding: 40vh;
   color: #888;
   font-family: sans-serif;
   text-align: center;
+}
+
+.error-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .error h2 {

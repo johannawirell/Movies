@@ -44,7 +44,7 @@ export default function Search () {
     }
   }
 
-  if (!serverError) {
+  if (serverError) {
     return <Error500 />
   } else if (loading) {
     return <Loading />

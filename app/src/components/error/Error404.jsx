@@ -15,8 +15,10 @@ import React from 'react'
 export default function Error404 () {
   return (
     <div className="error">
-      <h2>404 Not Found</h2>
-      <p>Sorry, but the page you were trying to view does not exist.</p>
+      <div className="error-text">
+        <h2>404 Not Found</h2>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+      </div>
     </div>
   )
 }
