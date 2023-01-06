@@ -6,6 +6,7 @@
  */
 
 import React, { lazy, useState, useTransition } from 'react'
+import { Navigate } from 'react-router-dom'
 import { searchMovie } from '../../lib/CommunicationAPI.js'
 import { MdSearch } from 'react-icons/md'
 
@@ -30,13 +31,12 @@ export default function Search () {
       const response = await searchMovie(query)
 
       if (mounted) {
-        console.log(response)
         startTransition(() => setLoading(false))
         if (response.status !== 200) {
           setServerError(true)
           console.error(response)
         } else {
-          setResult(response.results)
+          setResult(response.data.results)
         }
       }
     }
@@ -49,11 +49,7 @@ export default function Search () {
     return <Error500 />
   } else if (loading) {
     return <Loading />
-  } else if (result) {
-    console.log('hej')
-    // redirect
-    document.location = '/'
-  }
+  } 
 
   return (
     <div className = "search">
@@ -69,6 +65,13 @@ export default function Search () {
           />
           <MdSearch className="search-icon"  onClick={() => submit()}/>
         </div>
+        {result && (
+          <Navigate 
+            to="/movie/search"
+            replace={true}
+            state={ {result: result} }
+            />
+        )}
     </div>
   )
 }
