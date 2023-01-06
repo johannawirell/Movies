@@ -5,7 +5,7 @@
  * @version 1.0.2
  */
 
-import React, { lazy, useState } from 'react'
+import React, { lazy, useState, useTransition } from 'react'
 import { searchMovie } from '../../lib/CommunicationAPI.js'
 import { MdSearch } from 'react-icons/md'
 
@@ -18,6 +18,7 @@ const Error500 = lazy(() => import('../error/Error500'))
 */
 export default function Search () {
   const [loading, setLoading] = useState(null)
+  const [isPending, startTransition] = useTransition()
   const [serverError, setServerError] = useState(null)
   const [query, setQuery] = useState(null)
   const [result, setResult] = useState(null)
@@ -25,16 +26,16 @@ export default function Search () {
   const submit = async () => {
     if (query) {
       let mounted = true
-      setLoading(true)
+      startTransition(() => setLoading(true))
       const response = await searchMovie(query)
 
       if (mounted) {
         console.log(response)
+        startTransition(() => setLoading(false))
         if (response.status !== 200) {
           setServerError(true)
           console.error(response)
         } else {
-          setLoading(false)
           setResult(response.results)
         }
       }
@@ -49,7 +50,9 @@ export default function Search () {
   } else if (loading) {
     return <Loading />
   } else if (result) {
+    console.log('hej')
     // redirect
+    document.location = '/'
   }
 
   return (
