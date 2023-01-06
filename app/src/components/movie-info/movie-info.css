@@ -1,7 +1,6 @@
 @import './trailer/trailer.css';
 
 .movie-info-container {
-  border: rgb(0, 106, 255) solid;
   margin: 10px;
   height: 100vh;
   text-align: center;
@@ -11,4 +10,16 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.overview {
+  background-color: rgb(33, 33, 33);;
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px 50px;
+}
+
+.tagline {
+  text-align: center;
 }
