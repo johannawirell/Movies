@@ -5,9 +5,9 @@
  * @version 1.0.0
  */
 import React, { lazy, useState, useEffect } from 'react'
-import ClipLoader from 'react-spinners/ClipLoader'
-
 import { getMovieInfo } from '../../lib/CommunicationAPI'
+
+const Loading = lazy(() => import('../loading/Loading'))
 const Error500 = lazy(() => import('../error/Error500'))
 const Side = lazy(() => import('../home/side/Side'))
 const Trailer = lazy(() => import('./trailer/Trailer'))
@@ -21,6 +21,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
  export default function MovieInfo (props) {
   const [data, setData] = useState(null)
   const [year, setYear] = useState(null)
+  const [loading, setLoading] = useState(true)
   const [serverError, setServerError] = useState(null)
 
   useEffect(() => {
@@ -36,6 +37,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
           setServerError(true)
           console.error(response)
         } else {
+          setLoading(false)
           setData(response.data)
           setYear(response.data.release_date.split('-').shift())
         }
@@ -59,22 +61,12 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
     }
 
     return result
-
   }
 
-  //  Loading icon if data is not fetched 
-   if (!data) {
-    // If server error render error compoent 500.
-    if (serverError) {
-      return <Error500 /> 
-    }
-    return (
-      <div className="home-container">
-        <div className="loading">
-          <ClipLoader color="red" size={80}/>
-        </div>
-      </div>
-    )
+  if (serverError) {
+    return <Error500/>
+  } else if (loading) {
+    return <Loading/>
   }
   
    return (

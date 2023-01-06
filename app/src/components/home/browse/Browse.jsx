@@ -15,17 +15,19 @@ const TopRated = lazy(() => import('./top_rated/TopRated'))
  * @return {HTML} - Render start page with public recipes.
  */
 export default function Browse (props) {
-  const popularMovies = props.popular
-  const topMovies = props.top
+  if (props) {
+    const popularMovies = props.popular
+    const topMovies = props.top
 
-  if (popularMovies && topMovies) {
-    return (
-      <div className="list-movies">
-        <Popular movies={popularMovies}/>
-        <TopRated movies={topMovies}/>
-      </div>
-    )
-  }
- 
+    if (popularMovies && topMovies) {
+      return (
+        <div className="list-movies">
+          <Popular movies={popularMovies}/>
+          {/* <Popular movies={popularMovies}/>
+          <TopRated movies={topMovies}/> */}
+       </div>
+      )
+    }
+  } 
 }
   
