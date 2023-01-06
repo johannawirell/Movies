@@ -13,14 +13,14 @@ import {
 
 const Home = lazy(() => import('./components/home/Home'))
 const MovieInfo = lazy(() => import('./components/movie-info/MovieInfo'))
-const SearchResult = lazy(() => import('./components/home/browse/search_result/SearchResult'))
+const SearchResult = lazy(() => import('./components/search/result/SearchResult'))
 const Error404 = lazy(() => import('./components/error/Error404'))
 
 export default function App() {
   const routes = useRoutes([
     { path: '/', element: <Home/> },
     { path: '/movie/:id', element: <MovieInfo/> },
-    { path: '/movie/search', element: <SearchResult/> },
+    { path: '/search', element: <SearchResult/> },
     { path: '*', element: <Error404/> }
   ])
   return routes

@@ -67,7 +67,7 @@ export default function Search () {
         </div>
         {result && (
           <Navigate 
-            to="/movie/search"
+            to="/search"
             replace={true}
             state={ {result: result} }
             />

@@ -1,0 +1,26 @@
+.search-container {
+  color: white;
+  display: grid;
+  grid-template-rows: 100px 80%;
+  grid-template-columns: 20% 80%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.search-result {
+  border:red solid;
+  margin: 10px;
+}
+
+.search-movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
+
+.search-item {
+  height: 300px;
+  width: 200px;
+  flex-shrink: 0;
+  background-size: 200px 300px;
+}
