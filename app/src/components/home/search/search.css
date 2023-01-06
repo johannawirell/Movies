@@ -1,0 +1,35 @@
+.search {
+    display: flex;
+    margin: 10px 20px;
+    background-color: rgb(16, 16, 16);
+    /* gap: 50px; */
+    justify-content: end;
+}
+
+
+.search-box {
+    height: 50px;
+    display: flex;
+    border:  rgb(104, 102, 102) solid 1px;
+    border-radius: 30px;
+
+}
+
+.search-icon {
+    width: 10%;
+    height: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0px 30px 30px 0;
+    background-color: rgb(33, 33, 33);
+    
+}
+
+
+.search-box input {
+    width: 600px;
+    margin: 5px 10px;
+    background-color: rgb(16, 16, 16);
+    /* height: 70%; */
+    border: none;
+}

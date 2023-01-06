@@ -29,7 +29,6 @@ export default function Popular (props) {
     return (
       <div className="trending-container">
         <h1 className="title">Trending</h1>
-
         <div className="scroll-container">
           <MdChevronLeft className="arrow" onClick={slideLeft} />
           <div className="trending scroll" id="popular">

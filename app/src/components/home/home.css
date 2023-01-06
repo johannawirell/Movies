@@ -1,5 +1,6 @@
 @import './side/side.css';
 @import './browse/browse.css';
+@import './search/search.css';
 
 * {
   margin: 0;
@@ -16,7 +17,6 @@
 }
 
 .search {
-  border: red solid;
   grid-row: 1;
   grid-column: 1 / -1;
 }

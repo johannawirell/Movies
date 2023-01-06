@@ -6,6 +6,7 @@
  */
 
 import React, { lazy, useState, useEffect } from 'react'
+import { MdSearch } from 'react-icons/md'
 
 /**
 * Search component of application.
@@ -13,11 +14,12 @@ import React, { lazy, useState, useEffect } from 'react'
 * @return {HTML} - Render a search component.
 */
 export default function Search () {
-
-
   return (
-    <div className="search">
-     Search
+    <div className = "search">
+      <div className="search-box">
+          <input type="text" id="search"></input>
+          <MdSearch className="search-icon" />
+        </div>
     </div>
   )
 }
