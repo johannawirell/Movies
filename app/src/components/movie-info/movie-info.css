@@ -3,6 +3,8 @@
 .movie-info-container {
   margin: 10px;
   height: 100vh;
+  grid-row: 2;
+  grid-column: 2;
   text-align: center;
 }
 

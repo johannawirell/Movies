@@ -11,7 +11,7 @@ import { getMovies } from '../../lib/CommunicationAPI'
 const Loading = lazy(() => import('../loading/Loading'))
 const Side = lazy(() => import('./side/Side'))
 const Browse = lazy(() => import('./browse/Browse'))
-const Search = lazy(() => import('./search/Search'))
+const Search = lazy(() => import('../search/Search'))
 const Error500 = lazy(() => import('../error/Error500'))
 
 /**

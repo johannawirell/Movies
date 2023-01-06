@@ -9,6 +9,7 @@ import { getMovieInfo } from '../../lib/CommunicationAPI'
 
 const Loading = lazy(() => import('../loading/Loading'))
 const Error500 = lazy(() => import('../error/Error500'))
+// const Search = lazy(() => import('../')
 const Side = lazy(() => import('../home/side/Side'))
 const Trailer = lazy(() => import('./trailer/Trailer'))
 
@@ -70,6 +71,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
   
    return (
     <div className="home-container">
+      {/* <Search/> */}
       <Side/>
       <div className="movie-info-container" background="blue">
         <Trailer/>

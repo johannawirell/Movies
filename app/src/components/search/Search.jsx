@@ -14,11 +14,27 @@ import { MdSearch } from 'react-icons/md'
 * @return {HTML} - Render a search component.
 */
 export default function Search () {
+  const [query, setQuery] = useState(null)
+
+  const submit = () => {
+    if (query) {
+      console.log(query)
+    }
+  }
+
   return (
     <div className = "search">
       <div className="search-box">
-          <input type="text" id="search"></input>
-          <MdSearch className="search-icon" />
+          <input 
+            type="text" id="search"
+            onChange={event => setQuery(event.target.value)}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                submit()
+              }
+            }}
+          />
+          <MdSearch className="search-icon"  onClick={() => submit()}/>
         </div>
     </div>
   )

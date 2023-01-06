@@ -1,6 +1,5 @@
 @import './side/side.css';
 @import './browse/browse.css';
-@import './search/search.css';
 
 * {
   margin: 0;
@@ -8,7 +7,6 @@
 }
 
 .home-container {
-  background-color: rgb(16, 16, 16);
   color: white;
   display: grid;
   grid-template-rows: 50px 80%;
@@ -25,7 +23,6 @@
   border-right: solid 1px rgb(104, 102, 102);
   grid-row: 2;
   grid-column: 1;
-  
 }
 
 .list-movies {

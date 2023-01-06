@@ -1,3 +1,9 @@
 @import './components/home/home.css';
 @import './components/error/error.css';
+@import './components/loading/loading.css';
+@import './components/search/search.css';
 @import './components/movie-info/movie-info.css';
+
+* {
+    background-color: rgb(16, 16, 16);
+}
