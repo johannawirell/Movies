@@ -48,7 +48,6 @@ export default function Home () {
     }
   }, [])
 
-  // If server error render error compoent 500.
   if (serverError) {
     return <Error500 />
   } else if (loading) {
