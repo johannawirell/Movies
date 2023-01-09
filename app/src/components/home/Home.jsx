@@ -50,7 +50,7 @@ export default function Home () {
 
   if (serverError) {
     return <Error500 />
-  } else if (loading) {
+  } else if (!loading) {
     return <Loading />
   }
 
