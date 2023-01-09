@@ -14,6 +14,7 @@ export async function getMovieInfo(movieId) {
   return await axios.get(API_URL + `/movie/${movieId}`, {
     params: {
       'language': 'en-US',
+      'append_to_response': 'videos'
     },
     headers: {
       'Authorization': `Bearer ${API_KEY}`

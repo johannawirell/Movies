@@ -2,5 +2,9 @@
   width: 95%;
   height: 70%;
   margin: 10px auto;
-  border: red solid;
+}
+
+.trailer, .trailer > * {
+ height: 100%;
+ width: 100%;
 }

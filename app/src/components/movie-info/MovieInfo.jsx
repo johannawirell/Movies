@@ -18,7 +18,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
  * 
  * @return {HTML} - Render start page with public recipes.
  */
- export default function MovieInfo (props) {
+ export default function MovieInfo () {
   const [data, setData] = useState(null)
   const [year, setYear] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -74,7 +74,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
       <Search/>
       <Side/>
       <div className="movie-info-container">
-        <Trailer/>
+        <Trailer videos={data.videos.results}/>
         <div className="overview">
           <h1>{data.title}</h1>
           <div className="labels">

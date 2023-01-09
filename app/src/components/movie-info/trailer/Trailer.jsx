@@ -4,6 +4,9 @@
  * @author Johanna Wirell <wirelljohanna@gmail.com>
  * @version 1.0.0
  */
+import React, { useState, useEffect } from 'react'
+import Youtube from 'react-youtube'
+const OFFICIAL = 'Official Trailer'
 
  /**
   * Trailer component of application.
@@ -11,9 +14,32 @@
   * @return {HTML} - Render start page with public recipes.
   */
   export default function Trailer (props) {
-    return (
-     <div className="trailer-container">
-     </div>
-   )
+    const videos = props.videos
+    const [videoId, setVideoId] = useState(null)
+
+    useEffect(() => {
+      let mounted = true
+      const loadData = async () => {
+        const trailer = videos.find(vid => vid.name === OFFICIAL)
+        setVideoId(trailer.key)
+      }
+
+      loadData()
+      return () => {
+        mounted = false
+      }
+    }, [])
+
+    if (videos) {
+      return (
+        <div className="trailer-container">
+           <Youtube 
+            className='trailer'
+            videoId={videoId}
+           />
+        </div>
+      )
+    }
+    
   }
    
