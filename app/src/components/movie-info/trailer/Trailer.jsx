@@ -7,6 +7,7 @@
 import React, { useState, useEffect } from 'react'
 import Youtube from 'react-youtube'
 const OFFICIAL = 'Official Trailer'
+const TRAILER = 'Trailer'
 
  /**
   * Trailer component of application.
@@ -20,7 +21,7 @@ const OFFICIAL = 'Official Trailer'
     useEffect(() => {
       let mounted = true
       const loadData = async () => {
-        const trailer = videos.find(vid => vid.name === OFFICIAL)
+        const trailer = videos.find(vid => vid.name === OFFICIAL) || videos.find(vid => vid.name === TRAILER)
         setVideoId(trailer.key)
       }
 
