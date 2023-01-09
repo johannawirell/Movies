@@ -30,12 +30,19 @@ const OFFICIAL = 'Official Trailer'
       }
     }, [])
 
+    const videoOptions = {
+      playerVars: {
+        autoplay: 1
+      }
+    }
+
     if (videos) {
       return (
         <div className="trailer-container">
            <Youtube 
             className='trailer'
             videoId={videoId}
+            opts={videoOptions}
            />
         </div>
       )
