@@ -13,7 +13,7 @@ const API_LOGO_URL = import.meta.env.VITE_LOGO_URL
  */
  export default function Movie (props) {
   const classes = `${props.className} movie`
-  const logo = API_LOGO_URL + props.posterPath
+  const logo = props.posterPath ? API_LOGO_URL + props.posterPath : ''
 
   const setImage = () => {
     const element = document.getElementById(props.id)

@@ -74,16 +74,4 @@ async function getTopRatedMovies() {
     .catch(err => err)
 }
 
-export async function searchMovie (query) {
-  return await axios.get(API_URL + '/search/movie', {
-    params: {
-      'query': query,
-      'language': 'en-US',
-      'page': 1
-    },
-    headers: {
-      'Authorization': `Bearer ${API_KEY}`
-    }
-  }).then(res => res)
-    .catch(err => err)
-}
+
