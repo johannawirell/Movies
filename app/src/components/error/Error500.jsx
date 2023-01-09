@@ -13,8 +13,10 @@
  export default function Error500 () {
   return (
     <div className="error">
-      <h2>500 Internal Server Error</h2>
-      <p>There is a problem with the resource you are looking for, and it cannot be displayed.</p>
+       <div className="error-text">
+          <h2>500 Internal Server Error</h2>
+          <p>There is a problem with the resource you are looking for, and it cannot be displayed.</p>
+      </div>
     </div>
   )
 }

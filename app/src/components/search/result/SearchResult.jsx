@@ -11,6 +11,7 @@ const Search = lazy(() => import('../Search'))
 const Side = lazy(() => import('../../home/side/Side'))
 const Movie = lazy(() => import('../../home/browse/movie/Movie'))
 const Loading = lazy(() => import('../../loading/Loading'))
+const Error500 = lazy(() => import('../../error/Error500'))
 
 /**
  * Browse component of application.
@@ -40,7 +41,7 @@ export default function SearchResult () {
                     setLoading(false)
                     setResult(response.data.results)
                 } else {
-                    serverError(true)
+                    setServerError(true)
                 }
             }
         }
@@ -50,6 +51,9 @@ export default function SearchResult () {
         }
     }, [])
 
+    if (serverError) {
+        return <Error500 />
+    }
 
     return (
         <div className="search-container">
@@ -59,6 +63,7 @@ export default function SearchResult () {
             {result && (
             <div className="search-result">
                 <h1 className="title">Results for "{query}"</h1>
+                {result.length > 1 ? (
                 <div className="search-movies">
                     {result.map(movie => (
                     <Movie 
@@ -70,9 +75,11 @@ export default function SearchResult () {
                         />
                     ))}
                 </div>
+                ) : (
+                    <p>No matching movies.</p>
+                )}
             </div>
-            )}
-                    
+            )}                    
         </div>
     ) 
 }
