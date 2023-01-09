@@ -5,7 +5,7 @@
   height: 100vh;
   grid-row: 2;
   grid-column: 2;
-  text-align: center;
+  
 }
 
 .labels {
@@ -20,8 +20,9 @@
   margin: 0 auto;
   text-align: left;
   padding: 10px 50px;
+  text-align: center;
 }
 
-.tagline {
-  text-align: center;
+.overview >*, .labels >* {
+  background-color: inherit;
 }

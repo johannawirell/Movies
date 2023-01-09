@@ -73,10 +73,10 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
     <div className="home-container">
       <Search/>
       <Side/>
-      <div className="movie-info-container" background="blue">
+      <div className="movie-info-container">
         <Trailer/>
-        <h1>{data.title}</h1>
         <div className="overview">
+          <h1>{data.title}</h1>
           <div className="labels">
             <p>{year}</p>
             <p>{toHoursAndMinutes(data.runtime)}</p>
