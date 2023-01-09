@@ -4,6 +4,12 @@
   margin: 10px auto;
 }
 
+.no-trailer {
+  width: 500px;
+  height: 700px;
+  margin: 10px auto;
+}
+
 .trailer, .trailer > * {
  height: 100%;
  width: 100%;

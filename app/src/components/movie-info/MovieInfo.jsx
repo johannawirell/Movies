@@ -74,7 +74,7 @@ const Trailer = lazy(() => import('./trailer/Trailer'))
       <Search/>
       <Side/>
       <div className="movie-info-container">
-        <Trailer videos={data.videos.results}/>
+        <Trailer videos={data.videos.results} posterPath={data.poster_path}/>
         <div className="overview">
           <h1>{data.title}</h1>
           <div className="labels">
