@@ -10,7 +10,6 @@ import { searchMovie } from '../../../lib/Search.js'
 const Search = lazy(() => import('../Search'))
 const Side = lazy(() => import('../../home/side/Side'))
 const Movie = lazy(() => import('../../home/browse/movie/Movie'))
-const Sort = lazy(() => import('./sort/Sort'))
 const Loading = lazy(() => import('../../loading/Loading'))
 const Error500 = lazy(() => import('../../error/Error500'))
 
@@ -24,6 +23,9 @@ export default function SearchResult () {
     const [loading, setLoading] = useState(true)
     const [result, setResult] = useState(null)
     const [serverError, setServerError] = useState(null)
+    const [sortMethod, setSortMethod] = useState('relevans')
+    const [sortedResult, setSortedResult] = useState()
+    const [unsortedResult, setUnortedResult] = useState()
 
     const urlSearchParams = new URLSearchParams(window.location.search)
     const query = Object.fromEntries(urlSearchParams.entries()).query
@@ -33,14 +35,14 @@ export default function SearchResult () {
      */
     useEffect(() => {
         let mounted = true
-        
-        
+
         const loadData = async () => {
             const response = await searchMovie(query)
             if (mounted) {
                 if (response.status === 200) {
                     setLoading(false)
                     setResult(response.data.results)
+                    setUnortedResult(response.data.results)
                 } else {
                     setServerError(true)
                 }
@@ -51,7 +53,32 @@ export default function SearchResult () {
             mounted = false
         }
     }, [])
+   
 
+    useEffect(() => {
+        if (result) {
+            let sortedResult = [...result]
+            if (sortMethod === 'imdb') {
+                sortedResult.sort((a, b) => b.vote_average - a.vote_average)
+            } else {
+                sortedResult = unsortedResult
+            }
+            setResult(sortedResult)
+        }
+    }, [sortMethod])
+    
+    useEffect(() => {
+        if (result) {
+            let sortedResult = [...result]
+            if (sortMethod === 'imdb') {
+                sortedResult.sort((a, b) => b.vote_average - a.vote_average)
+            }
+            setSortedResult(sortedResult)
+        }
+    }, [sortMethod, result])
+      
+   
+  
     if (serverError) {
         return <Error500 />
     }
@@ -64,7 +91,13 @@ export default function SearchResult () {
             {result && (
             <div className="search-result">
                 <h1 className="title">Results for "{query}"</h1>
-                <Sort/>
+                <div className="sort-container">
+                    <div className="sort-label">Sort by:</div>
+                    <select onChange={e => setSortMethod(e.target.value)}>
+                        <option value="relevans">relevans</option>
+                        <option value="imdb">IMDB</option>
+                    </select>
+                </div>
                 {result.length > 1 ? (                
                 <div className="search-movies">
                     {result.map(movie => (
@@ -85,4 +118,3 @@ export default function SearchResult () {
         </div>
     ) 
 }
-  
