@@ -27,7 +27,7 @@ export default function Search () {
     <div className = "search">
       <form className="search-box" onSubmit={searchMovies}>
           <input type="text" id="search" onChange={event => setQuery(event.target.value)}/>
-          <MdSearch className="search-icon"  onClick={e => searchMovies(e)}/>
+          <MdSearch className="search-icon" onClick={e => searchMovies(e)}/>
         </form>
     </div>
   )
