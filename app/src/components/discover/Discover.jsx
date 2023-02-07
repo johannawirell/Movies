@@ -77,7 +77,7 @@ export default function Discover () {
         <div className="options-container">
             {genres && (
                 genres.map(genre => (
-                    <div className="discover-option">{genre.name}</div>
+                    <div className="discover-option" key={genre.id}>{genre.name}</div>
                 ))
             )}
         </div>
