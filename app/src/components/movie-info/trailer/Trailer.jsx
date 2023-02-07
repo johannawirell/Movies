@@ -57,7 +57,13 @@ const TRAILER = 'Trailer'
       }
       return ( 
         <div className='no-trailer' style={style}>
-            
+
+        </div>
+      )
+    } else {
+      return (
+        <div className='empty-trailer'>
+          <p>No trailer to show.</p>
         </div>
       )
     }
