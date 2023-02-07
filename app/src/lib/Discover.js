@@ -27,3 +27,15 @@ export async function getGenres () {
   }).then(res => res)
     .catch(err => err)
 }
+
+export async function getMoviesBasedOnGenre(genreId) {
+  return await axios.get(API_URL + '/discover/movie', {
+    params: {
+      with_genres: genreId
+    },
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`
+    }
+  }).then(res => res)
+    .catch(err => err)
+}

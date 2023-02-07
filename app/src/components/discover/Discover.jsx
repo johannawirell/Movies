@@ -6,7 +6,7 @@
  */
 
 import React, { lazy, useState, useEffect } from 'react'
-import { discover, getGenres } from '../../lib/Discover'
+import { discover, getGenres, getMoviesBasedOnGenre } from '../../lib/Discover'
 
 const Side = lazy(() => import('../home/side/Side'))
 const Search = lazy(() => import('../search/Search'))
@@ -24,6 +24,8 @@ export default function Discover () {
     const [serverError, setServerError] = useState(null)
     const [result, setResult] = useState(null)
     const [genres, setGenres] = useState(null)
+    const [activeOption, setActiveOption] = useState(null)
+
     useEffect(() => {
         let mounted = true
       
@@ -62,40 +64,61 @@ export default function Discover () {
           mounted = false
         }
       }, [])
- 
-  if (serverError) {
-    return <Error500 />
-  } else if (loading) {
-    return <Loading />
-  }
-  return (
-    <div className="home-container">
-      <Search/>
-      <Side/>
-      <div className="discover-container">
-        <h1 className="title">Discover</h1>
-        <div className="options-container">
-            {genres && (
-                genres.map(genre => (
-                    <div className="discover-option" key={genre.id}>{genre.name}</div>
-                ))
-            )}
+   
+    const getMoviesGenres = async id => {
+        setLoading(true)
+        setActiveOption(id)
+        await getMoviesBasedOnGenre(id)
+          .then(response => {
+            if (response.error) {
+                serverError(true)
+                console.error(response)
+            } else {
+                setLoading(false)
+                setResult(response.data.results)
+            }
+          })
+    }
+    
+    if (serverError) {
+        return <Error500 />
+    } else if (loading) {
+        return <Loading />
+    }
+    
+    return (
+        <div className="home-container">
+        <Search/>
+        <Side/>
+        <div className="discover-container">
+            <h1 className="title">Discover</h1>
+            <div className="options-container">
+                {genres && (
+                    genres.map(genre => (
+                        <div 
+                            className={`discover-option ${genre.id == activeOption ? 'active' : ''}`}
+                            key={genre.id}
+                            value={genre.id}
+                            onClick={(e) => getMoviesGenres(e.currentTarget.getAttribute('value'))}
+                        >{genre.name}</div>
+                    ))
+                )}
+            </div>
+            <div className="movies-container">
+                {result && (
+                    result.map(movie => (
+                        <Movie 
+                        title={movie.original_title} 
+                        posterPath={movie.poster_path}
+                        id={movie.id} 
+                        className='discover-item'
+                        key={movie.id}
+                        />
+                    ))
+                )}
+            </div>
         </div>
-        <div className="movies-container">
-            {result && (
-                result.map(movie => (
-                    <Movie 
-                    title={movie.original_title} 
-                    posterPath={movie.poster_path}
-                    id={movie.id} 
-                    className='discover-item'
-                    key={movie.id}
-                    />
-                ))
-            )}
-        </div>
-      </div>
 
-    </div>
-  )
+        </div>
+    )
 }
