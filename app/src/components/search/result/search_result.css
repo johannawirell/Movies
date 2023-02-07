@@ -1,3 +1,4 @@
+@import './sort/sort.css';
 .search-container {
   color: white;
   display: grid;
@@ -14,7 +15,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  
 }
 
 .search-item {

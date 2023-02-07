@@ -10,6 +10,7 @@ import { searchMovie } from '../../../lib/Search.js'
 const Search = lazy(() => import('../Search'))
 const Side = lazy(() => import('../../home/side/Side'))
 const Movie = lazy(() => import('../../home/browse/movie/Movie'))
+const Sort = lazy(() => import('./sort/Sort'))
 const Loading = lazy(() => import('../../loading/Loading'))
 const Error500 = lazy(() => import('../../error/Error500'))
 
@@ -63,7 +64,8 @@ export default function SearchResult () {
             {result && (
             <div className="search-result">
                 <h1 className="title">Results for "{query}"</h1>
-                {result.length > 1 ? (
+                <Sort/>
+                {result.length > 1 ? (                
                 <div className="search-movies">
                     {result.map(movie => (
                     <Movie 
