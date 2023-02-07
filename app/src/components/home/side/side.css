@@ -10,13 +10,7 @@
   height: 80vh;
 }
 
-.nav_title {
-  font-size: 22px;
-  font-weight: 150;
-  text-align: center;
-}
-
-.nav_element {
+.nav_element, .nav_title {
   font-size: 16px;
   text-decoration: none;
   color: white;
@@ -25,7 +19,13 @@
   padding: 10px;
 }
 
-.nav_element:hover {
+.nav_title {
+  font-size: 22px;
+  font-weight: 150;
+  text-align: center;
+}
+
+.nav_element:hover, .nav_title:hover {
   color: rgba(255, 255, 255, 0.547);
 }
 
