@@ -20,7 +20,7 @@ export default function Side () {
           <i className="fa fa-home"></i>
           <span className="nav_name">Home</span> 
         </a>
-        <a href="/" className="nav_element">
+        <a href="/discover" className="nav_element">
           <i className="fa fa-compass"></i>
           <span className="nav_name">Discover</span> 
         </a>

@@ -12,6 +12,7 @@ import {
 } from 'react-router-dom'
 
 const Home = lazy(() => import('./components/home/Home'))
+const Discover = lazy(() => import('./components/discover/Discover'))
 const MovieInfo = lazy(() => import('./components/movie-info/MovieInfo'))
 const SearchResult = lazy(() => import('./components/search/result/SearchResult'))
 const Error404 = lazy(() => import('./components/error/Error404'))
@@ -21,6 +22,7 @@ export default function App() {
     { path: '/', element: <Home/> },
     { path: '/movie/:id', element: <MovieInfo/> },
     { path: '/search', element: <SearchResult/> },
+    { path: '/discover', element: <Discover/> },
     { path: '*', element: <Error404/> }
   ])
   return routes
