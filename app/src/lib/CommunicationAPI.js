@@ -90,3 +90,17 @@ export async function getTopIMDB() {
 }
 
 
+export async function getLatest() {
+  return await axios.get(API_URL + '/discover/movie', {
+    params: {
+      'language': 'en-US',
+      'sort_by': 'release_date.desc',
+      'page': 1
+    },
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`
+    }
+  }).then(res => res)
+    .catch(err => err)
+}
+

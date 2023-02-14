@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 import React, { lazy, useState, useEffect } from 'react'
-import { getTopIMDB } from '../../lib/CommunicationAPI.js'
+import { getTopIMDB, getLatest } from '../../lib/CommunicationAPI.js'
 const Loading = lazy(() => import('../loading/Loading'))
 const Error500 = lazy(() => import('../error/Error500'))
 const Side = lazy(() => import('../home/side/Side'))
@@ -25,34 +25,30 @@ export default function Sort (props) {
 
     useEffect(() => {
         let mounted = true
-    
         const loadData = async () => {
-          const response = await getTopIMDB()
-    
-          if (mounted) {
-            if (response.error) {
-              setServerError(true)
-              console.error(response)
-            } else {
-              setLoading(false)
-              setMovies(response.data.results)
-            }
+            let response 
+            if (sortBy === 'imdb') {
+                response = await getTopIMDB()
+            } else if (sortBy === 'release_date') {
+                response = await getLatest()
+            } 
+      
+            if (mounted) {
+                if (response.error) {
+                  setServerError(true)
+                  console.error(response)
+                } else {
+                  setLoading(false)
+                  setMovies(response.data.results)
+                }
+              }
           }
-        }
-        loadData()
+
+          loadData()
         return () => {
           mounted = false
         }
-      }, [])
-   
-
-    // useEffect(() => {
-    //     let mounted = true
-    //     loadData()
-    //     return () => {
-    //       mounted = false
-    //     }
-    // }, [sortBy])
+    }, [sortBy])
     
     if (serverError) {
         return <Error500 />
@@ -71,7 +67,6 @@ export default function Sort (props) {
                 <select className="dropdown" onChange={(event) => setSortBy(event.target.value)}>
                     <option value="imdb">IMDB</option>
                     <option value="release_date">Release date</option>
-                    <option value="popularity">Popularity</option>
                     </select>
             </div>
             <div className="list-movies">
