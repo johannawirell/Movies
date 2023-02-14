@@ -39,3 +39,24 @@ export async function getMoviesBasedOnGenre(genreId) {
   }).then(res => res)
     .catch(err => err)
 }
+
+export async function getMoviesSortedBy(sortType) {
+  if (sortType === 'imdb') {
+    sortType = 'vote_average.desc'
+  } else if (sortType === 'release_date') {
+    sortType = 'release_date.desc'
+  } else if (sortType === 'popularity') {
+    sortType = 'popularity.desc' 
+  }
+  return await axios.get(API_URL + '/discover/movie', {
+    params: {
+      'language': 'en-US',
+      'sort_by': sortType,
+      'page': 1
+    },
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`
+    }
+  }).then(res => res)
+    .catch(err => err)
+}

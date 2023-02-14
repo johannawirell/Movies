@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 import React, { lazy, useState, useEffect } from 'react'
-import { getTopIMDB, getLatest } from '../../lib/CommunicationAPI.js'
+import { getMoviesSortedBy } from '../../lib/Discover.js'
 const Loading = lazy(() => import('../loading/Loading'))
 const Error500 = lazy(() => import('../error/Error500'))
 const Side = lazy(() => import('../home/side/Side'))
@@ -25,13 +25,9 @@ export default function Sort (props) {
 
     useEffect(() => {
         let mounted = true
+        setLoading(true)
         const loadData = async () => {
-            let response 
-            if (sortBy === 'imdb') {
-                response = await getTopIMDB()
-            } else if (sortBy === 'release_date') {
-                response = await getLatest()
-            } 
+            const response = await getMoviesSortedBy(sortBy)
       
             if (mounted) {
                 if (response.error) {
@@ -49,6 +45,8 @@ export default function Sort (props) {
           mounted = false
         }
     }, [sortBy])
+
+    console.log(sortBy)
     
     if (serverError) {
         return <Error500 />
@@ -67,6 +65,7 @@ export default function Sort (props) {
                 <select className="dropdown" onChange={(event) => setSortBy(event.target.value)}>
                     <option value="imdb">IMDB</option>
                     <option value="release_date">Release date</option>
+                    <option value="popularity">Popularity</option>
                     </select>
             </div>
             <div className="list-movies">

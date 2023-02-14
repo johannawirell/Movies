@@ -75,32 +75,5 @@ async function getTopRatedMovies() {
     .catch(err => err)
 }
 
-export async function getTopIMDB() {
-  return await axios.get(API_URL + '/discover/movie', {
-    params: {
-      'language': 'en-US',
-      'sort_by': 'vote_average.desc',
-      'page': 1
-    },
-    headers: {
-      'Authorization': `Bearer ${API_KEY}`
-    }
-  }).then(res => res)
-    .catch(err => err)
-}
 
-
-export async function getLatest() {
-  return await axios.get(API_URL + '/discover/movie', {
-    params: {
-      'language': 'en-US',
-      'sort_by': 'release_date.desc',
-      'page': 1
-    },
-    headers: {
-      'Authorization': `Bearer ${API_KEY}`
-    }
-  }).then(res => res)
-    .catch(err => err)
-}
 
