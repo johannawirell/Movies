@@ -5,10 +5,12 @@
  * @version 1.0.0
  */
 import React, { lazy, useState, useEffect } from 'react'
+import { getTopIMDB } from '../../lib/CommunicationAPI.js'
 const Loading = lazy(() => import('../loading/Loading'))
 const Error500 = lazy(() => import('../error/Error500'))
 const Side = lazy(() => import('../home/side/Side'))
 const Search = lazy(() => import('../search/Search'))
+const Movie = lazy(() => import('../home/browse/movie/Movie'))
 
 /**
  * Sort component of application.
@@ -16,20 +18,74 @@ const Search = lazy(() => import('../search/Search'))
  * @return {HTML} - Render start page with public recipes.
  */
 export default function Sort (props) {
-    const [loading, setLoading] = useState(false)
-    const [serverError, setServerError] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [serverError, setServerError] = useState(false)
+    const [movies, setMovies] = useState(null)
+    const [sortBy, setSortBy] = useState('imdb')
 
-    console.log('sort')
+    useEffect(() => {
+        let mounted = true
+    
+        const loadData = async () => {
+          const response = await getTopIMDB()
+    
+          if (mounted) {
+            if (response.error) {
+              setServerError(true)
+              console.error(response)
+            } else {
+              setLoading(false)
+              setMovies(response.data.results)
+            }
+          }
+        }
+        loadData()
+        return () => {
+          mounted = false
+        }
+      }, [])
+   
+
+    // useEffect(() => {
+    //     let mounted = true
+    //     loadData()
+    //     return () => {
+    //       mounted = false
+    //     }
+    // }, [sortBy])
+    
     if (serverError) {
         return <Error500 />
       } else if (loading) {
         return <Loading />
-      }
+    }
+
 
     return (
     <div className="home-container">
         <Search/>
         <Side/>
+        <div className="sort-container">
+            <div className="sort-options">
+                <label className="title" htmlFor="dropdown">Sort by:</label>
+                <select className="dropdown" onChange={(event) => setSortBy(event.target.value)}>
+                    <option value="imdb">IMDB</option>
+                    <option value="release_date">Release date</option>
+                    <option value="popularity">Popularity</option>
+                    </select>
+            </div>
+            <div className="list-movies">
+            {movies.map(movie => (
+              <Movie 
+                title={movie.original_title} 
+                posterPath={movie.poster_path}
+                id={movie.id} 
+                className='top-rated-item'
+                key={movie.id}
+                />
+            ))}
+            </div>
+        </div>
       </div>
     
     )

@@ -1,0 +1,28 @@
+.sort-container {
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 100%;
+  }
+  
+  .sort-options {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .sort-options .title {
+    font-size: 22px;
+  }
+  
+  .dropdown {
+    height: 30px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .sort-container .list-movies {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
