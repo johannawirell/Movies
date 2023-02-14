@@ -17,7 +17,7 @@ const Movie = lazy(() => import('../home/browse/movie/Movie'))
  * 
  * @return {HTML} - Render start page with public recipes.
  */
-export default function Sort (props) {
+export default function Sort () {
     const [loading, setLoading] = useState(true)
     const [serverError, setServerError] = useState(false)
     const [movies, setMovies] = useState(null)
@@ -46,7 +46,6 @@ export default function Sort (props) {
         }
     }, [sortBy])
 
-    console.log(sortBy)
     
     if (serverError) {
         return <Error500 />
@@ -62,11 +61,15 @@ export default function Sort (props) {
         <div className="sort-container">
             <div className="sort-options">
                 <label className="title" htmlFor="dropdown">Sort by:</label>
-                <select className="dropdown" onChange={(event) => setSortBy(event.target.value)}>
+                <select 
+                    className="dropdown"
+                    defaultValue={sortBy}
+                    onChange={(event) => setSortBy(event.target.value)}
+                >
                     <option value="imdb">IMDB</option>
                     <option value="release_date">Release date</option>
                     <option value="popularity">Popularity</option>
-                    </select>
+                </select>
             </div>
             <div className="list-movies">
             {movies.map(movie => (
