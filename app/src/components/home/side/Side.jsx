@@ -24,6 +24,10 @@ export default function Side () {
           <i className="fa fa-compass"></i>
           <span className="nav_name">Discover</span> 
         </a>
+        <a href="/sort" className="nav_element">
+          <i className="fa fa-compass"></i>
+          <span className="nav_name">Sort</span> 
+        </a>
       </div>
     </div>
 

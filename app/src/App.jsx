@@ -15,6 +15,7 @@ const Home = lazy(() => import('./components/home/Home'))
 const Discover = lazy(() => import('./components/discover/Discover'))
 const MovieInfo = lazy(() => import('./components/movie-info/MovieInfo'))
 const SearchResult = lazy(() => import('./components/search/result/SearchResult'))
+const Sort = lazy(() => import('./components/sort/Sort'))
 const Error404 = lazy(() => import('./components/error/Error404'))
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
     { path: '/movie/:id', element: <MovieInfo/> },
     { path: '/search', element: <SearchResult/> },
     { path: '/discover', element: <Discover/> },
+    { path: '/sort', element: <Sort/> },
     { path: '*', element: <Error404/> }
   ])
   return routes
