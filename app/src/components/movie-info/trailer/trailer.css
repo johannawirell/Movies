@@ -2,12 +2,22 @@
   width: 95%;
   height: 70%;
   margin: 10px auto;
+  position: relative;
 }
 
 .no-trailer {
   width: 500px;
   height: 700px;
   margin: 10px auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .empty-trailer {
@@ -18,9 +28,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px dashed;
+  color: white;
+  font-style: italic;
 }
 
-.trailer, .trailer > * {
- height: 100%;
- width: 100%;
+.trailer,
+.trailer > * {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* Overlay när trailern spelas */
+.trailer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Stängknapp */
+.close-trailer {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.close-trailer:hover {
+  transform: scale(1.1);
+}
+
+/* Spela trailer-knapp */
+.play-trailer-btn {
+  position: absolute;
+  bottom: 40px;
+  background: rgba(255,255,255,0.85);
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-trailer-btn:hover {
+  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+/* Text när trailer saknas */
+.no-trailer-text {
+  color: white;
+  font-style: italic;
+  font-size: 1rem;
 }
